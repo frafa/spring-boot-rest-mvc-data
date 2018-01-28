@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Entity
-public @Data class Users {
+public @Data class User {
 	@Id @GeneratedValue
 	private Long Id;
 	private String UserName;
