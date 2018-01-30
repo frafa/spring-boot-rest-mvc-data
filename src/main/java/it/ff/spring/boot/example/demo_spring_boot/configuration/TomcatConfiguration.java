@@ -42,7 +42,7 @@ public class TomcatConfiguration {
 	                resource.setType(DataSource.class.getName());
 	                resource.setProperty("driverClassName",
 	                        "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	                resource.setProperty("jdbcUrl", "jdbc:sqlserver://127.0.0.1:1401");
+	                resource.setProperty("jdbcUrl", "jdbc:sqlserver://127.0.0.1:1401;databaseName=Test;");
 	                resource.setProperty("password", "!Passw0rd");
 	                resource.setProperty("username", "sa");
 	                resource.setProperty("factory", "com.zaxxer.hikari.HikariJNDIFactory");
