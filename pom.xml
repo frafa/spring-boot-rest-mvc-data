@@ -63,6 +63,11 @@
 			<artifactId>mssql-jdbc</artifactId>
 			<version>6.2.2.jre8</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.flywaydb</groupId>
+		    <artifactId>flyway-core</artifactId>
+		    <version>5.0.7</version>
+		</dependency>
 	</dependencies>
 
 	<build>
