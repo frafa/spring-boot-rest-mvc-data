@@ -14,53 +14,46 @@ import org.springframework.jndi.JndiObjectFactoryBean;
 
 @Configuration
 public class TomcatConfiguration {
-	
-	/*
-	 * Configurazione necessaria a definire una risorsa JNDI nel tomcat embedded
-	 */
-	@Bean
-	public TomcatServletWebServerFactory tomcatFactory() {
-	        return new TomcatServletWebServerFactory(9000) {
-
+//	
+//	/*
+//	 * Configurazione necessaria a definire una risorsa JNDI nel tomcat embedded
+//	 */
+//	@Bean
+//	public TomcatServletWebServerFactory tomcatFactory() {
+//	        return new TomcatServletWebServerFactory(9000) {
+//
+//	        	@Override
+//	        	protected TomcatWebServer getTomcatWebServer(Tomcat tomcat) {
+//	        		tomcat.enableNaming();
+//	        		return super.getTomcatWebServer(tomcat);
+//	        	}
+//	        	
 //	            @Override
-//	            protected TomcatEmbeddedServletContainer getTomcatEmbeddedServletContainer(
-//	                    Tomcat tomcat) {
-//	                tomcat.enableNaming();
-//	                return super.getTomcatEmbeddedServletContainer(tomcat);
+//	            protected void postProcessContext(Context context) {
+//	                ContextResource resource = new ContextResource();
+//	                resource.setName("jdbc/DB_Name");
+//	                resource.setType(DataSource.class.getName());
+//	                resource.setProperty("driverClassName",
+//	                        "com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//	                resource.setProperty("jdbcUrl", "jdbc:sqlserver://127.0.0.1:1401;databaseName=Test;");
+//	                resource.setProperty("password", "!Passw0rd");
+//	                resource.setProperty("username", "sa");
+//	                resource.setProperty("factory", "com.zaxxer.hikari.HikariJNDIFactory");
+//	                
+//	                context.getNamingResources().addResource(resource);
 //	            }
-
-	        	@Override
-	        	protected TomcatWebServer getTomcatWebServer(Tomcat tomcat) {
-	        		tomcat.enableNaming();
-	        		return super.getTomcatWebServer(tomcat);
-	        	}
-	        	
-	            @Override
-	            protected void postProcessContext(Context context) {
-	                ContextResource resource = new ContextResource();
-	                resource.setName("jdbc/DB_Name");
-	                resource.setType(DataSource.class.getName());
-	                resource.setProperty("driverClassName",
-	                        "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	                resource.setProperty("jdbcUrl", "jdbc:sqlserver://127.0.0.1:1401;databaseName=Test;");
-	                resource.setProperty("password", "!Passw0rd");
-	                resource.setProperty("username", "sa");
-	                resource.setProperty("factory", "com.zaxxer.hikari.HikariJNDIFactory");
-	                
-	                context.getNamingResources().addResource(resource);
-	            }
-	        };
-	}
-	
-	@Bean(destroyMethod = "")
-    public DataSource jndiDataSource() throws IllegalArgumentException,
-            NamingException {
-        JndiObjectFactoryBean bean = new JndiObjectFactoryBean();
-        bean.setJndiName("java:comp/env/jdbc/DB_Name");
-        bean.setProxyInterface(DataSource.class);
-        bean.setLookupOnStartup(false);
-        bean.afterPropertiesSet();
-        return (DataSource) bean.getObject();
-    }
-
+//	        };
+//	}
+//	
+//	@Bean(destroyMethod = "")
+//    public DataSource jndiDataSource() throws IllegalArgumentException,
+//            NamingException {
+//        JndiObjectFactoryBean bean = new JndiObjectFactoryBean();
+//        bean.setJndiName("java:comp/env/jdbc/DB_Name");
+//        bean.setProxyInterface(DataSource.class);
+//        bean.setLookupOnStartup(false);
+//        bean.afterPropertiesSet();
+//        return (DataSource) bean.getObject();
+//    }
+//
 }

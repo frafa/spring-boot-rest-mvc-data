@@ -9,8 +9,8 @@ GO
 -- Create the table in the specified schema
 CREATE TABLE dbo.Users
 (
-    Id INT NOT NULL IDENTITY(1,1) PRIMARY KEY, -- primary key column
-    UserName [NVARCHAR](255) NOT NULL,
-    Password [NVARCHAR](16) NOT NULL
+    id BIGINT NOT NULL IDENTITY(1,1) PRIMARY KEY, -- primary key column
+    userName [VARCHAR](255) NOT NULL,
+    password [VARCHAR](16) NOT NULL
 );
 GO
